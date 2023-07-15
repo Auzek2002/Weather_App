@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-By Azaan Nabi Khan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="heading">
+                <h2>Weather App</h2>
+            </div>
+            <div class="textInput">
+                <input type="text" id="cityInput" placeholder="Enter City Name">
+                <button>Search</button>
+            </div>
+            <div class="error">Error City Not Found!</div>
+            <div class="info">
+                <div class="city">
+                    <h3>City Name: <span id="Name">Karachi</span></h3>
+                </div>
+                <div class="temp">
+                    <h3>Temperature: <span id="city-temp">31 °C</span></h3>
+                </div>
+                <div class="speed">
+                    <h3>Wind Speed: <span id="wind-speed">24 km/h</span></h3>
+                </div>
+           
+
+        </div>
+        <footer>
+            Developed By Azaan Nabi Khan
+        </footer>
+    </div>
+    </div>
+
+    <script>
+        const api="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+        const apiKey= "edf7ca15ee214ad6192c9ddb22ced662"
+        const name=document.querySelector(".textInput input");
+        const btn=document.querySelector(".textInput button");
+        async function weather(cityName){
+            let response= await fetch(api+cityName +`&appid=${apiKey}`);
+            let data= await response.json();
+            if(response.status == 404){
+                document.querySelector(".error").style.display = "block";
+                document.querySelector(".info").style.display = "none";
+            }
+            else{
+                document.querySelector("#Name").innerHTML = data.name;
+                document.querySelector("#city-temp").innerHTML = Math.round(data.main.temp) + " °C";
+                document.querySelector("#wind-speed").innerHTML = Math.round(data.wind.speed) + " km/h";
+                document.querySelector(".error").style.display = "none";
+                document.querySelector(".info").style.display = "grid";
+            }
+            
+        }
+
+        btn.addEventListener("click",()=> {
+            weather(name.value);
+        })
+    </script>
+</body>
+</html>
