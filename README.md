@@ -1,2 +1,2 @@
 # Weather_App
-This is a weather App that I made which uses a weather API to display the name, temperature and wind speed of a city that is entered by the user. This project was made using HTML, CSS and JavaScript and is not yet mobile responsive.
+This is a weather application that is developed using HTML, CSS, and JavaScript. By integrating a weather API, users can easily access the name, temperature, and wind speed of any city they input. This application is not yet mobile responsive.
