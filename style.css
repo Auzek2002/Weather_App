@@ -91,3 +91,18 @@ button:hover{
     display: none;
     gap:50px;
 }
+.links .list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    margin-top: 30px;
+}
+.fa-lg {
+    font-size: 32px;
+    line-height: .05em;
+    vertical-align: -0.075em;
+}
+a{
+    font-size: 32px;
+}
